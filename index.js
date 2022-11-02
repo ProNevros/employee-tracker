@@ -31,7 +31,7 @@ function addDept(params) {
 }
 
 // addDept()
-// Adds new Role
+// Prompt for new Role
 function addRole(params) {
     return inquirer
         .prompt(
@@ -50,7 +50,7 @@ function addRole(params) {
                     name: 'roleDept',
                     type: 'list',
                     message: 'Which department does the role belong to?',
-                    choices: ['Deez Nuts', 'Cheeked Up', 'Bruh', '']
+                    choices: ['Deez Nuts', 'Cheeked Up', 'Bruh',]
                 },
 
             ]
@@ -59,7 +59,7 @@ function addRole(params) {
 }
 
 // addRole()
-
+// Prompt for a new employee
 function addEmployee(params) {
     return inquirer
         .prompt(
@@ -78,6 +78,12 @@ function addEmployee(params) {
                     name: 'empRole',
                     type: 'list',
                     message: 'What is the role of the employee?',
+                    choices: ['1','2','3','4','5']
+                },
+                {
+                    name: 'empManager',
+                    type: 'list',
+                    message: 'Who is their manager?',
                     choices: ['1','2','3','4','5']
                 },
             ]
