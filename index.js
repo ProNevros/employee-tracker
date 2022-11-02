@@ -52,10 +52,36 @@ function addRole(params) {
                     message: 'Which department does the role belong to?',
                     choices: ['Deez Nuts', 'Cheeked Up', 'Bruh', '']
                 },
-                
+
             ]
         )
         .then((data) => { return data })
 }
 
-addRole()
+// addRole()
+
+function addEmployee(params) {
+    return inquirer
+        .prompt(
+            [
+                {
+                    name: 'empFirstName',
+                    type: 'input',
+                    message: 'What is the first name of the employee?'
+                },
+                {
+                    name: 'empLastName',
+                    type: 'input',
+                    message: 'What is the last name of the employee?'
+                },
+                {
+                    name: 'empRole',
+                    type: 'list',
+                    message: 'What is the role of the employee?',
+                    choices: ['1','2','3','4','5']
+                },
+            ]
+        )
+}
+
+addEmployee()
