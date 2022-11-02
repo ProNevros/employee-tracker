@@ -14,5 +14,16 @@ function mainMenu() {
       .then((data) => { return data })
   }
 
-  mainMenu()
+//   mainMenu()
   
+function addDept(params) {
+    return inquirer
+    .prompt([{
+        name: 'department',
+        type: 'input',
+        message: 'What is the name of the Department?'
+    }])
+    .then((data) => { return data })
+}
+
+// addDept()
