@@ -2,6 +2,15 @@ const inquirer = require('inquirer');
 const path = require('path');
 const mysql = require('mysql2');
 const cTable = require('console.table');
+const db = mysql.createConnection(
+    {
+        host: 'localhost',
+        user: 'root',
+        password: 'rootroot',
+        database: 'departments_db'
+    },
+    console.log(`Connected to the departments_db database.`)
+);
 
 // Initial menu 
 function mainMenu() {
@@ -28,9 +37,13 @@ function addDept(params) {
                 }
             ]
         )
-        .then((data) => { return data })
-        .mainMenu()
-}
+        .then((response) => {
+            db.query(addDeptQuery, response.name, function (err, results) {
+                console.log(`\n New Department added as: ${response.name} \n`);
+                init();
+            })
+        });
+};
 
 // addDept()
 // Prompt for new Role
@@ -80,13 +93,13 @@ function addEmployee(params) {
                     name: 'empRole',
                     type: 'list',
                     message: 'What is the role of the employee?',
-                    choices: ['1','2','3','4','5']
+                    choices: ['1', '2', '3', '4', '5']
                 },
                 {
                     name: 'empManager',
                     type: 'list',
                     message: 'Who is their manager?',
-                    choices: ['1','2','3','4','5']
+                    choices: ['1', '2', '3', '4', '5']
                 },
             ]
         )
