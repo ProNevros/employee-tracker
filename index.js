@@ -29,6 +29,7 @@ function addDept(params) {
             ]
         )
         .then((data) => { return data })
+        .mainMenu()
 }
 
 // addDept()
