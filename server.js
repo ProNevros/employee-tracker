@@ -38,9 +38,9 @@ function addDept(params) {
             ]
         )
         .then((response) => {
-            db.query(addDeptQuery, response.name, function (err, results) {
+            db.query(response.name, function (err, results) {
                 console.log(`\n New Department added as: ${response.name} \n`);
-                init();
+                mainMenu();
             })
         });
 };
